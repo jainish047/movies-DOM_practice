@@ -9,10 +9,48 @@
         <script src="/movies-DOM_practice/scripts/script.js" async defer></script>
     </head>
     <body>
+        <div id="backdrop"></div>
         <header>
             <h1>Movies</h1>
-            <button>Add movie</button>
+            <button type="button" id="addMovieBtn">Add movie</button>
         </header>
-        
+        <div class="modal card" id="addModal">
+            <div class="modalTitle">
+                <h2>Add movie</h2>
+            </div>
+            <div class="modalContent">
+                <label for="name">Movie Title:</label>
+                <input type="text" id="name">
+                <p class="error" id="titleError">Invalid title</p>
+                <label for="url">Movie URL:</label>
+                <input type="text" id="url">
+                <p class="error" id="urlError">Invalid URL</p>
+                <label for="rating">Rating:</label>
+                <input type="number" id="rating" min="1" max="5" step="1">
+                <p class="error" id="ratingError">Invalid Rating</p>
+            </div>
+            <div class="modalActions">
+                <button class="cancel">Cancel</button>
+                <button class="save">Save</button>
+            </div>
+        </div>
+        <div class="modal card" id="deleteModal">
+            <div class="modalTitle">
+                <h2>Are you sure?</h2>
+            </div>
+            <div class="modalContent">
+                <p>Once you delete this, you won't be able to retrive it again.</p>
+            </div>
+            <div class="modalActions">
+                <button class="cancel">Cancel(NO)</button>
+                <button class="save danger">YES</button>
+            </div>
+        </div>
+        <main>
+            <section class="card" id="entryText">
+                Your personal movie database.
+            </section>
+            <ul id="movieList"></ul>
+        </main>
     </body>
 </html>

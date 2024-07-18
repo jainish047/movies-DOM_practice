@@ -6,12 +6,32 @@ html{
     font-family: sans-serif;
 }
 
+body{
+    display: block;
+}
+
+#backdrop{
+    position: fixed;
+    top:0px;
+    left:0px;
+    width:100%;
+    height:100vh;
+    background: rgba(0,0,0,0.75);
+    z-index: 10;
+
+    pointer-events: none;
+    display:none;
+}
+
+#backdrop.visible{
+    display: block;
+    pointer-events: all;
+}
+
 header{
-    margin:0px;
     background-color: rgb(96, 96, 243);
     width: 100%;
     height: 4rem;
-    /* border:100px; */
     
     display: flex;
     justify-content: space-between; /*as there are only two elements*/
@@ -36,4 +56,130 @@ button{
     text-align: center;
 
     box-shadow: 0 1px 8px rgba(0, 0, 0, 0.26);
+    cursor: pointer;
+}
+
+button:hover{
+    /* cursor: pointer; */
+    background-color: orangered;
+}
+
+.modal{
+    /* padding: 1rem; */
+    min-width: 300px;
+    /* border-radius: 10px; */
+    /* box-shadow: 0px 2px 8px black; */
+    display: block;
+    position: fixed;
+    z-index: 100;
+    width: 50%;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    display: none;
+}
+
+.modal.visible{
+    display: block;
+    /* animation: fade-slide-in 0.3s ease-out forward; */
+}
+
+/* #addModal{
+    display:none;
+}
+
+#deleteModal{
+    display:none;
+} */
+
+.modalTitle{
+    padding: 0.5rem 1rem;
+    border-radius: 10px 10px 0px 0px;
+    background-color: rgb(96, 96, 243);
+}
+
+.modalContent{
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+label{
+    font-weight: bold;
+    margin: 0.5rem 0rem;
+}
+
+input{
+    font:inherit;
+    border: 1px solid rgb(102, 102, 102);
+    padding: 0.4rem 0.2rem;
+}
+
+input.wrong{
+    border: 2px solid red;
+}
+
+.error{
+    color: red;
+    display: none;
+}
+
+.error.visible{
+    display: block;
+}
+
+.modalActions{
+    display: flex;
+    justify-content: flex-end;
+
+    padding: 1rem;
+}
+
+.cancel, .save{
+    margin: 0rem 0.5rem;
+    padding: 0.5rem 1.5rem;
+}
+
+.save{
+    background-color: rgb(6, 184, 6);
+}
+
+.save:hover{
+    background-color: green;
+}
+
+.cancel{
+    background-color: white;
+    color: blue;
+    border: none;
+    box-shadow: none;
+}
+
+.cancel:hover{
+    background-color: rgb(197, 197, 255);
+}
+
+.danger{
+    background-color: rgb(255, 127, 80);
+}
+
+.danger:hover{
+    background-color: red;
+}
+
+.card{
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+}
+
+#entryText{
+    width: 70%;
+    min-width: 350px;
+    margin: 2rem auto;
+    padding: 1rem;
+    text-align: center;
+    font-size: 1.5rem;
 }
